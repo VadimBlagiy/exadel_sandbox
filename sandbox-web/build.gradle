@@ -1,0 +1,22 @@
+plugins {
+    id 'org.springframework.boot' version '2.4.4'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'sandbox.java-conventions'
+}
+
+
+bootJar {
+    mainClass = 'com.exadel.team2.sandbox.SandboxApplication'
+}
+
+
+//spring-security commented for now, will work with it later
+dependencies {
+    implementation project(':sandbox-backend')
+
+//    implementation 'org.springframework.boot:spring-boot-starter-security'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+//    testImplementation 'org.springframework.security:spring-security-test'
+}

@@ -1,0 +1,30 @@
+plugins {
+    id 'java'
+}
+
+group 'com.exadel.team2'
+version '0.0.1-SNAPSHOT'
+
+compileJava {
+    sourceCompatibility = 15
+    targetCompatibility = 15
+}
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+test {
+    useJUnitPlatform()
+}
+
+dependencies {
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+}
