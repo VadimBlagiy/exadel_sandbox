@@ -1,0 +1,41 @@
+databaseChangeLog:
+  - changeSet:
+      id: table_interview_feedback
+      author: aliaksei_halkin
+      changes:
+        - createTable:
+            tableName: INTERVIEW-FEEDBACK
+            columns:
+              - column:
+                  name: IFB_ID
+                  type: INT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: CN_ID
+                  type: INT
+                  constraints:
+                    foreignKeyName: fk_INTERVIEW-FEEDBACK_contact_CANDIDATE
+                    references: INTERVIEW-FEEDBACK(IFB_ID)
+              - column:
+                  name: EMP_ID
+                  type: INT
+                  constraints:
+                    foreignKeyName: fk_INTERVIEW-FEEDBACK_contact_EMPLOYEE
+                    references: INTERVIEW-FEEDBACK(IFB_ID)
+              - column:
+                  name: IFB_FEEDBACK
+                  type: TEXT(2000)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: IFB_CREATED_AT
+                  type: DATETIME
+                  constraints:
+                    nullable: false
+              - column:
+                  name: IFB_UPDATED_AT
+                  type: DATETIME
+                  constraints:
+                    nullable: false
