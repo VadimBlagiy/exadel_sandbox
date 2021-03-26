@@ -1,7 +1,7 @@
 databaseChangeLog:
   - changeSet:
       id: table_image
-      author: blagiy
+      author: vadblagiy@gmail.com
       changes:
         - createTable:
             tableName: IMAGE
@@ -20,26 +20,18 @@ databaseChangeLog:
               - column:
                   name: IMG_NAME
                   type: VARCHAR(20)
-                  constraints:
-                    nullable: false
               - column:
                   name: IMG_EXT
                   type: VARCHAR(15)
-                  constraints:
-                    nullable: false
               - column:
                   name: IMG_SIZE
                   type: INT
-                  constraints:
-                    nullable: false
               - column:
                   name: IMG_CREATED_AT
                   type: DATETIME
-                  constraints:
-                    nullable: false
   - changeSet:
       id: table_event_type
-      author: blagiy
+      author: vadblagiy@gmail.com
       changes:
         - createTable:
             tableName: EVENT_TYPE
@@ -63,14 +55,12 @@ databaseChangeLog:
               - column:
                   name: EVT_CREATED_AT
                   type: DATETIME
-                  constraints:
-                    nullable: false
               - column:
                   name: EVT_UPDATED_AT
                   type: DATETIME
   - changeSet:
       id: table_event
-      author: blagiy
+      author: vadblagiy@gmail.com
       changes:
         - createTable:
             tableName: EVENT
@@ -112,18 +102,12 @@ databaseChangeLog:
               - column:
                   name: EV_START_DATE
                   type: DATETIME
-                  constraints:
-                    nullable: false
               - column:
                   name: EV_DURATION
                   type: DATETIME
-                  constraints:
-                    nullable: false
               - column:
                   name: EV_DEADLINE
                   type: DATETIME
-                  constraints:
-                    nullable: false
               - column:
                   name: EV_LOCATION
                   type: VARCHAR(50)
@@ -132,13 +116,9 @@ databaseChangeLog:
               - column:
                   name: EV_CANDIDATE_REQUIREMENT
                   type: TEXT(2000)
-                  constraints:
-                    nullable: false
               - column:
                   name: EV_CREATED_AT
                   type: DATETIME
-                  constraints:
-                    nullable: false
               - column:
                   name: EV_UPDATED_AT
                   type: DATETIME

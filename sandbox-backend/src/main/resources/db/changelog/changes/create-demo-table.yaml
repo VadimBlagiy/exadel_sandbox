@@ -1,0 +1,28 @@
+databaseChangeLog:
+  - changeSet:
+      id: crate-demo-table
+      author: akarzhaneuski
+      changes:
+        - createTable:
+            tableName: DEMO_TABLE
+            columns:
+              - column:
+                  name: ID
+                  type: INT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: SOME_FIELD
+                  type: VARCHAR(255)
+  - changeSet:
+      id: drop-demo-table
+      author: vadblagiy@gmail.com
+      preConditions:
+        - onFail: MARK_RAN
+        - tableExists:
+            tableName: DEMO_TABLE
+      changes:
+        - dropTable:
+            cascadeConstrains: true
+            tableName: DEMO_TABLE
