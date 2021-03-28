@@ -1,0 +1,77 @@
+databaseChangeLog:
+  - changeSet:
+      id: 2021.03.26-create-table-candidate.yaml
+      author: saranchuk_vadim
+      changes:
+        - createTable:
+            tableName: interview_time
+            columns:
+              - column:
+                  name: itm_id
+                  type: int unsigned
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: ev_id
+                  type: int unsigned
+                  defaultValue: null
+              - column:
+                  name: cn_id
+                  type: int unsigned
+                  constraints:
+                    nullable: false
+              - column:
+                  name: emp_id
+                  type: int unsigned
+                  defaultValue: null
+              - column:
+                  name: itm_begin_date
+                  type: datetime
+              - column:
+                  name: itm_created_at
+                  type: datetime
+              - column:
+                  name: itm_updated_at
+                  type: datetime
+                  defaultValue: null
+        - addForeignKeyConstraint:
+            baseColumnNames: ev_id
+            baseTableCatalogName: sandbox
+            baseTableName: interview_time
+            baseTableSchemaName: sandbox
+            constraintName: fk_interview_time_event
+            onDelete: cascade
+            onUpdate: cascade
+            referencedColumnNames: ev_id
+            referencedTableCatalogName: sandbox
+            referencedTableName: event
+            referencedTableSchemaName: sandbox
+            validate: true
+        - addForeignKeyConstraint:
+            baseColumnNames: cn_id
+            baseTableCatalogName: sandbox
+            baseTableName: interview_time
+            baseTableSchemaName: sandbox
+            constraintName: fk_interview_time_candidate
+            onDelete: cascade
+            onUpdate: cascade
+            referencedColumnNames: cn_id
+            referencedTableCatalogName: sandbox
+            referencedTableName: candidate
+            referencedTableSchemaName: sandbox
+            validate: true
+        - addForeignKeyConstraint:
+            baseColumnNames: emp_id
+            baseTableCatalogName: sandbox
+            baseTableName: interview_time
+            baseTableSchemaName: sandbox
+            constraintName: fk_interview_time_employee
+            onDelete: cascade
+            onUpdate: cascade
+            referencedColumnNames: emp_id
+            referencedTableCatalogName: sandbox
+            referencedTableName: employee
+            referencedTableSchemaName: sandbox
+            validate: true

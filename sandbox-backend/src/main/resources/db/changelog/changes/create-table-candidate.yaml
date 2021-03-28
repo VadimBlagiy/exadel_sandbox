@@ -1,0 +1,89 @@
+databaseChangeLog:
+      - changeSet:
+          id: 2021.03.26-create-table-candidate.yaml
+          author: saranchuk_vadim
+          changes:
+            - createTable:
+                tableName: candidate
+                columns:
+                  - column:
+                      name: cn_id
+                      type: int unsigned
+                      autoIncrement: true
+                      constraints:
+                        primaryKey: true
+                        nullable: false
+                  - column:
+                      name: rsm_id
+                      type: int unsigned
+                      constraints:
+                        nullable: false
+                  - column:
+                      name: cn_first_name
+                      type: varchar(50)
+                      constraints:
+                        nullable: false
+                  - column:
+                      name: cn_phone
+                      type: varchar(13)
+                      constraints:
+                        unique: true
+                        uniqueContraintName: number_phone_of_candidate
+                        nullable: false
+                  - column:
+                      name: cn_email
+                      type: varchar(50)
+                      constraints:
+                        unique: true
+                        uniqueContraintName: email_of_candidate
+                        nullable: false
+                  - column:
+                      name: cn_skype
+                      type: varchar(50)
+                      constraints:
+                        nullable: false
+                  - column:
+                      name: cn_engilsh_level
+                      type: varchar(20)
+                      constraints:
+                        nullable: false
+                  - column:
+                      name: cn_expertice
+                      type: varchar(30)
+                      constraints:
+                        nullable: false
+                  - column:
+                      name: cn_experience
+                      type: tinytext
+                      defaultValue: null
+                  - column:
+                      name: cn_education
+                      type: tinytext
+                      defaultValue: null
+                  - column:
+                      name: cn_location
+                      type: varchar(50)
+                      constraints:
+                        nullable: false
+                  - column:
+                      name: cn_created_at
+                      type: datetime
+                      constraints:
+                        nullable: false
+                  - column:
+                      name: cn_updated_at
+                      type: datetime
+                      defaultValue: null
+            - addForeignKeyConstraint:
+                baseColumnNames: rsm_id
+                baseTableCatalogName: sandbox
+                baseTableName: candidate
+                baseTableSchemaName: sandbox
+                constraintName: fk_candidate_resume
+                onDelete: cascade
+                onUpdate: cascade
+                referencedColumnNames: rsm_id
+                referencedTableCatalogName: sandbox
+                referencedTableName: resume
+                referencedTableNameSchema: sandbox
+                validate: true

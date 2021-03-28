@@ -1,3 +1,9 @@
 databaseChangeLog:
   - include:
       file: db/changelog/changes/create-demo-table.yaml
+  - include:
+      file: db/changelog/changes/create-table-resume.yaml
+  - include:
+      file: db/changelog/changes/create-table-candidate.yaml
+  - include:
+      file: db/changelog/changes/create-table-interview-time.yaml
