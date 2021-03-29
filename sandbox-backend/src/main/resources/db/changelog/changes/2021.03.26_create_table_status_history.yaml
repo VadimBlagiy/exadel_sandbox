@@ -1,6 +1,6 @@
 databaseChangeLog:
   - changeSet:
-      id: table_status
+      id: table_status_history
       author: butenko
       changes:
         - createTable:
